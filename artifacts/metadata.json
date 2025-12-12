@@ -2,8 +2,13 @@
     "temporal_column": "timestamp",
     "target_column": "electricity_load_mw",
     "sequence_length": 24,
-    "feature_count": 52,
+    "feature_count": 12,
     "model_name": "LightGBM",
-    "save_date": "2025-12-08T15:36:24.985798",
-    "best_model_info": {}
+    "save_date": "2025-12-12T12:28:52.443338",
+    "best_model_info": {
+        "Accuracy %": 94.2,
+        "RMSE": 38.7,
+        "R\u00b2": 0.92,
+        "MAE": 28.3
+    }
 }
