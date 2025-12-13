@@ -21,7 +21,7 @@ sys.path.append('.')
 
 # Set page config
 st.set_page_config(
-    page_title="Zimbabwe Agricultural Electricity Load Forecasting",
+    page_title=" Zimbabwe Agricultural Electricity Load Forecasting",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -102,9 +102,34 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# App Header
-st.markdown('<h1 class="main-header">⚡ Zimbabwe Agricultural Electricity Load Forecasting System</h1>', unsafe_allow_html=True)
-st.markdown("### Zimbabwe Electricity Transmission & Distribution Company (ZETDC)")
+# App Header - Modified to include logo and IGEZI name
+col1, col2, col3 = st.columns([1, 3, 1])
+
+with col1:
+    logo_paths = ["assets/logo.png", "logo.png"]
+    logo_loaded = False
+    
+    for logo_path in logo_paths:
+        try:
+            st.image(logo_path, width=150)
+            logo_loaded = True
+            break
+        except:
+            continue
+    
+    if not logo_loaded:
+        # Fallback to icon if logo.png not found
+        st.image("https://img.icons8.com/color/96/000000/electricity.png", width=100)
+
+with col2:
+    st.markdown('<h1 class="main-header">IGEZI ⚡</h1>', unsafe_allow_html=True)
+    st.markdown('<h2 style="text-align: center; color: #1f77b4;">Zimbabwe Agricultural Electricity Load Forecasting System</h2>', unsafe_allow_html=True)
+    st.markdown("### Zimbabwe Electricity Transmission & Distribution Company (ZETDC)")
+
+with col3:
+    # You can add additional logo or system info here if needed
+    pass
+
 st.markdown("---")
 
 # Initialize session state
@@ -514,7 +539,22 @@ def load_sample_data():
 
 # Sidebar
 with st.sidebar:
-    st.image("https://img.icons8.com/color/96/000000/electricity.png", width=80)
+    # Add logo to sidebar with the same logic
+    logo_paths = ["assets/logo.png", "logo.png"]
+    sidebar_logo_loaded = False
+    
+    for logo_path in logo_paths:
+        try:
+            st.image(logo_path, width=80)
+            sidebar_logo_loaded = True
+            break
+        except:
+            continue
+    
+    if not sidebar_logo_loaded:
+        # Fallback to icon if logo.png not found
+        st.image("https://img.icons8.com/color/96/000000/electricity.png", width=80)
+    
     st.title("Navigation")
     
     app_mode = st.radio(
